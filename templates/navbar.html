@@ -1,0 +1,39 @@
+<nav data-ng-if="$ctrl.autenticado()" class="navbar navbar-expand-sm py-1 navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><abbr title="Libros"><i class="fas fa-home"></i></abbr></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/libros')}">
+        <a class="nav-link" href="#!/libros"></a>
+	  </li>
+	  <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/nuevolibro')}">
+        <a class="nav-link" href="#!/nuevolibro">Nuevo libro</a>
+	  </li>
+      <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/usuarios')}">
+        <a class="nav-link" href="#!/usuarios">Usuarios</a>
+      </li>
+	  <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/autores')}">
+        <a class="nav-link" href="#!/autores">Autores</a>
+	  </li>
+	  <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/generos')}">
+        <a class="nav-link" href="#!/generos">Generos</a>
+	  </li>
+	  <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/miperfil')}">
+        <a class="nav-link" href="#!/miperfil">Mi perfil</a>
+	  </li>
+	  <li class="nav-item" data-ng-class="{'active': $ctrl.actual('/mensajes')}">
+        <a class="nav-link" href="#!/mensajes">Enviar mensaje</a>
+	  </li>
+    </ul>
+  </div>
+  <form class="form-inline">
+	<div class="input-group-btn">
+	    <a href="#!/sobrenosotros" button class="btn"><abbr title="Sobre nosotros"><i class="fas fa-info-circle" style="color:White;font-size: 25px;"></i></abbr></a>
+	    <a href="#!/preguntas" button class="btn"><abbr title="FAQs"><i class="far fa-question-circle" style="color:White;font-size: 25px;"></i></abbr></a>
+		<a href="#!/ayuda" button class="btn"><abbr title="Ayuda"><i class="fas fa-hands-helping" style="color:White;font-size: 25px;"></i></abbr></a>
+		<button class="btn" data-ng-click="$ctrl.salir()"><abbr title="Salir"><i class="fas fa-sign-out-alt" style="color:White;font-size: 25px;"></i></abbr></button>
+    </div>
+  </form>
+</nav>

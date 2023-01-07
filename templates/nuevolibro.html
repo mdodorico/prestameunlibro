@@ -1,0 +1,68 @@
+<div align="center" style="color:White">
+    <div class="col-lg-6 col-md-12">
+		<form class="needs-validation" novalidate name="libroForm">
+		    <div class="form-group">
+				<label>Título</label>
+				<input type="text" class="form-control" data-ng-class="{'is-invalid': libroForm.titulo.$invalid && libroForm.titulo.$dirty }" name="titulo" id="titulo" required data-ng-model="$ctrl.nuevoLibro.titulo">
+				    <div class="invalid-feedback">
+                        El título es obligatorio
+                    </div>
+			</div>
+			<div class="form-group">
+				<label>Autor/es</label><small class="form-text">CTRL + clic para seleccionar más de uno</small>
+				<select class="form-control" required data-ng-model="$ctrl.nuevoLibro.autores" multiple data-ng-options="a.id as (a.apellido + ', ' + a.nombre) for a in $ctrl.autores | orderBy:'apellido'"></select>
+				    <div class="invalid-feedback">
+                        Seleccione por lo menos un autor
+                    </div>
+			</div>
+			<div class="form-group">
+				<label>Genero</label><small class="form-text">CTRL + clic para seleccionar más de uno</small>
+				<select class="form-control" required data-ng-model="$ctrl.nuevoLibro.generos" multiple data-ng-options="g.id as g.genero for g in $ctrl.generos | orderBy:'genero'"></select>
+				    <div class="invalid-feedback">
+                        Seleccione por lo menos un género
+                    </div>
+			</div>
+		    <div class="form-group">
+				<label>Idioma</label>
+				<input type="text" class="form-control" data-ng-class="{'is-invalid': libroForm.idioma.$invalid && libroForm.idioma.$dirty }" name="idioma" id="idioma" required data-ng-model="$ctrl.nuevoLibro.idioma">
+					<div class="invalid-feedback">
+                        El idioma es obligatorio
+                    </div>
+			</div>
+		    <div class="form-group">
+				<label>Ciudad</label>
+				<input type="text" class="form-control" data-ng-class="{'is-invalid': libroForm.ciudad.$invalid && libroForm.ciudad.$dirty }" name="ciudad" id="ciudad" required data-ng-model="$ctrl.nuevoLibro.ciudad">
+				    <div class="invalid-feedback">
+                        La ciudad es obligatoria
+                    </div>
+			</div>
+			<div class="form-group">
+				<label>Año de publicación</label>
+				<input type="text" class="form-control" id="anio" data-ng-model="$ctrl.nuevoLibro.anio">
+			        <div class="invalid-feedback">
+                        El año de publicación es obligatorio
+                    </div>
+			</div>
+			<div class="form-group">
+				<label>Sinopsis</label>
+				<textarea class="form-control" data-ng-class="{'is-invalid': libroForm.sinopsis.$invalid && libroForm.sinopsis.$dirty }" name="sinopsis" id="sinopsis" required data-ng-model="$ctrl.nuevoLibro.sinopsis"></textarea>
+				    <div class="invalid-feedback">
+                        La sinopsis es obligatoria
+                    </div>
+			</div>
+			<div class="form-group">
+				<label>Tapa</label><small> (Opcional)</small>
+				    <div class="input-group">
+						<span class="input-group-addon">
+						<img data-ng-src="{{ 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg' }}" height="50"></span>
+						<input type="text" class="form-control" placeholder="http://ejemplo.com/imagen.jpg" data-ng-model="$ctrl.nuevoLibro.tapa">
+					</div>
+			</div>
+			<div class="py-2 text-center">
+			    <button class="btn btn-success" type="button" style="margin:3px;" data-ng-click="$ctrl.guardar()" data-ng-disabled="libroForm.$invalid">Guardar</button>
+				<button type="button" class="btn btn-secondary" style="margin:3px;" data-ng-click="$ctrl.nuevoLibro=null">Descartar</button>
+				<a href="#!/libros" class="btn btn-warning" type="button" style="margin:3px;">Volver</a>
+			</div>
+		</form>
+	</div>
+</div>

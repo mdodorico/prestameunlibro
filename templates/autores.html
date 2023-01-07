@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span style="color:White">Autores</span>
+            <span class="badge badge-pill badge-primary">{{ $ctrl.autores.length }}</span>
+        </h4>
+		<table class="table table-bordered table-hover table-striped table table-sm table-dark" style="color:White">
+		<thead>
+                <tr>
+                    <th>Apellido</th>
+                    <th>Nombre</th>
+					<th>Nacimiento-muerte</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="a in $ctrl.autores | orderBy:'apellido'">
+				    <td>
+					    {{ a.apellido }}
+					</td>
+					<td>
+					    {{ a.nombre }}
+					</td>
+					<td>
+					    {{ a.nacimiento }} - {{ a.muerte }}
+					</td>
+                </tr>
+            </tbody>
+        </table>
+		<div class="py-2 text-center">
+	       <a href="#!/nuevoautor" class="btn btn-primary" style="margin:5px;" type="button" data-ng-click="$ctrl.nuevoAutor()">Agregar</a>
+		   <a href="#!/libros" class="btn btn-warning" type="button">Volver</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="modal fade show" aria-modal="true" role="dialog" style="display: block;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Perfil de usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="$ctrl.cancel()">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div align="center" data-ng-if="$ctrl.unUsuario">
+                    <h4>{{ $ctrl.unUsuario.alias }}</h4>
+                    <div>
+                        <img data-ng-src="{{ $ctrl.unUsuario.url_foto || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png' }}" height="150">
+                     </div>
+                    <div class="row">
+                        <div class="col-md-12 py-3 mb-4">
+                            <h6 class="my-0">{{ $ctrl.unUsuario.localidad }}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+			    <a href="#!/mensajes" type="button" class="btn btn-sm btn-primary" data-ng-click="$ctrl.cancel()">Enviar mensaje</a>
+                <button type="button" class="btn-sm btn btn-secondary" data-ng-click="$ctrl.cancel()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

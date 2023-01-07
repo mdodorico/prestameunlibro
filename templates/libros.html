@@ -1,0 +1,20 @@
+<h6 style="color:White;position:absolute; right:20px; top:60px;"><i>Bienvenido/a {{ $ctrl.miPerfil.alias }}</i></h6>
+<div class="row">
+	<div class="col-lg-3 col-md-4 mb-4" data-ng-repeat="l in $ctrl.libros | orderBy:'titulo'">
+		<div class="card h-150" >
+			<img class="card-img-top product-pic" data-ng-src="{{ l.tapa || 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg' }}" data-ng-title="{{ l.titulo }}">
+			<div class="card-body">
+				<h4 class="card-title product">{{l.titulo}}</h4>
+			    <a href="#!/mensajes" class="card-link">{{ l.usuario }}</a>
+				    <p class="card-text">
+				        <h6>Autor/es: {{l.autor}}</h6>
+				        <h6>Idioma: {{l.idioma}}</h6>
+				        <h6>Ciudad: {{l.ciudad}}</h6>
+				        <h6>Año: {{l.anio}}</h6>
+					    <h6>Género/s: {{l.genero}}</h6>
+				    </p>
+				<p class="card-text">{{l.sinopsis}}</p>
+			</div>
+		</div>
+	</div>
+</div>

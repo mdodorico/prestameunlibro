@@ -1,0 +1,20 @@
+<main class="form-signin">
+  <form>
+    <div class="mb-3">
+        <label for="email" style="color:White">E-mail</label>
+        <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" data-ng-model="$ctrl.login.email">
+    </div>
+    <div>
+        <label for="clave" style="color:White">Clave</label>
+        <input type="password" class="form-control" id="clave" placeholder="Clave" data-ng-model="$ctrl.login.clave">
+    </div>
+    <br>
+	<div class="py-3 text-center">
+	    <button class="btn btn-success" style="margin:3px;" type="button" data-ng-click="$ctrl.ingresar()">Ingresar</button>
+	    <a href="#!/nuevousuario" class="btn btn-info" type="button" data-ng-click="$ctrl.nuevoUsuario()">Crear usuario</a>
+    </div>
+  </form>
+  <footer class="container-fluid" style="color:White;margin-top:200px;">
+     <p>Copyright © 2021 - Prestame un libro</p>
+  </footer>
+</main>

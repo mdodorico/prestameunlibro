@@ -1,0 +1,20 @@
+<div class="col-md-8" style="color:White">
+    <h4>Nuevo Mensaje</h4>
+	<form name="mensajeForm">
+	    <div class="form-group">
+		<label>Para:</label>
+		        <select class="form-control" required data-ng-model="$ctrl.nuevoMensaje.destinatario" data-ng-options="u.id as (u.alias) for u in $ctrl.usuarios | orderBy:'alias'"></select>
+			<div class="invalid-feedback">
+                Elija un destinatario
+            </div>
+	    </div>
+	    <div class="form-group">
+		    <label for="mensajeInput">Nuevo mensaje:</label>
+		    <textarea class="form-control" rows="5" id="mensajeInput" required data-ng-model="$ctrl.nuevoMensaje.mensaje"></textarea>
+		</div>
+		<span class="text-nowrap">
+		    <button class="btn btn-sm btn-success" type="button" style="margin:3px;" data-ng-click="$ctrl.enviar()" data-ng-disabled="mensajeForm.$invalid">Enviar</button>&nbsp;
+		    <a href="#!/libros" class="btn btn-sm btn-warning" type="button">Volver</a>
+        </span>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+<div class="col-md-8" style="color:White">
+    <h4>Enviar mensaje al administrador</h4>
+	<form name="helpForm">
+	    <div class="form-group">
+		    <label for="mensajeInput">Escriba aquí:</label>
+		    <textarea class="form-control" rows="5" id="mensajeInput" required data-ng-model="$ctrl.help.mensaje"></textarea>
+		</div>
+		<span class="text-nowrap">
+		    <button class="btn btn-sm btn-success" type="button" style="margin:3px;" data-ng-click="$ctrl.enviar()" data-ng-disabled="helpForm.$invalid">Enviar</button>&nbsp;
+		    <a href="#!/libros" class="btn btn-sm btn-warning" type="button">Volver</a>
+        </span>
+    </form>
+</div>

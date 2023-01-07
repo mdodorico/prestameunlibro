@@ -1,0 +1,58 @@
+<div class="modal fade show" aria-modal="true" role="dialog" style="display: block;">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Editar perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-ng-click="$ctrl.cancel()">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div align="center" data-ng-if="$ctrl.usuarioEditado">
+		            <form class="needs-validation" novalidate name="formulario">
+					    <div class="form-group">
+		                    <label for="alias">Alias</label>
+					        <input type="text" class="form-control" data-ng-class="{'is-invalid': formulario.alias.$invalid && formulario.alias.$dirty }" id="alias" name="alias" required data-ng-model="$ctrl.usuarioEditado.alias">
+                                <div class="invalid-feedback">
+                                    Debe ingresar un alias
+                                </div>
+                        </div>
+				        <div class="form-group">
+		                    <label for="email">Email</label>
+					        <input type="email" class="form-control" data-ng-class="{'is-invalid': formulario.email.$invalid && formulario.email.$dirty }" id="email" name="email" required data-ng-model="$ctrl.usuarioEditado.email">
+                                <div class="invalid-feedback">
+                                    Debe ingresar un email
+                                </div>
+                        </div>
+				        <div class="form-group">
+                            <label for="clave">Clave</label><small class="form-text">Vuelva a ingresarla o ingrese una nueva para guardar los cambios</small>
+                            <input type="password" class="form-control" data-ng-class="{'is-invalid': formulario.clave.$invalid && formulario.clave.$dirty }" name="clave" id="clave" required data-ng-model="$ctrl.usuarioEditado.clave">
+                                <div class="invalid-feedback">
+                                    Debe ingresar una clave
+                                </div>
+                        </div>
+				        <div class="form-group">
+                            <label for="localidad">Localidad</label>
+                            <select class="form-control" data-ng-class="{'is-invalid': formulario.localidad.$invalid && formulario.localidad.$dirty }" name="localidad" id="localidad" required data-ng-model="$ctrl.usuarioEditado.localidad" data-ng-options="l as l.localidad for l in $ctrl.localidades | orderBy:'localidad' track by l.id"></select>
+                                <div class="invalid-feedback">
+                                    Debe seleccionar una localidad
+                                </div>
+			            </div>
+				        <div class="form-group">
+				            <label for="url_foto">Imagen</label>
+				            <div class="input-group">
+						        <span class="input-group-addon">
+						        <img data-ng-src="{{ $ctrl.usuarioEditado.url_foto || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png' }}" height="50"></span>
+						        <input type="text" class="form-control" placeholder="URL de la foto" data-ng-model="$ctrl.usuarioEditado.url_foto">
+					        </div>
+				        </div>
+						<div class="modal-footer">
+			                <button type="button" class="btn btn-sm btn-success" style="margin:3px;" data-ng-disabled="formulario.$invalid" data-ng-click="$ctrl.guardarPerfil()">Guardar</button>
+				            <button type="button" class="btn btn-sm btn-secondary" data-ng-click="$ctrl.usuarioEditado=null; $ctrl.cancel()">Descartar</button>
+                        </div>
+			        </form>
+                </div>
+		    </div>
+        </div>
+    </div>
+</div>

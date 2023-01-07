@@ -1,0 +1,38 @@
+<div class="row" style="color:White">
+    <div class="col-md-12">
+    <h4 class="mb-3">Agregar nuevo autor</h4>
+        <form class="needs-validation" novalidate name="formulario">
+            <div class="row">
+			    <div class="col-md-6 mb-3">
+                    <label for="nombre">Nombre</label>
+					<input type="text" class="form-control" data-ng-class="{'is-invalid': formulario.nombre.$invalid && formulario.nombre.$dirty}" id="nombre" name="nombre" required data-ng-model="$ctrl.nuevoAutor.nombre">
+                        <div class="invalid-feedback">
+                            Debe ingresar nombre
+                        </div>
+                </div>
+				<div class="col-md-6 mb-3">
+                    <label for="apellido">Apellido</label>
+					<input type="text" class="form-control" data-ng-class="{'is-invalid': formulario.apellido.$invalid && formulario.apellido.$dirty}" id="apellido" name="apellido" required data-ng-model="$ctrl.nuevoAutor.apellido">
+                        <div class="invalid-feedback">
+                            Debe ingresar apellido
+                        </div>
+                </div>
+				<div class="col-md-6 mb-3">
+                    <label for="nacimiento">Año nacimiento</label>
+					<input type="text" class="form-control" data-ng-class="{'is-invalid': formulario.nacimiento.$invalid && formulario.nacimiento.$dirty}" id="nacimiento" name="nacimiento" required data-ng-model="$ctrl.nuevoAutor.nacimiento">
+                        <div class="invalid-feedback">
+                            Debe ingresar el año de nacimiento
+                        </div>
+                </div>
+				<div class="col-md-6 mb-3">
+                    <label for="muerte">Año muerte</label><small> (Opcional)</small>
+					<input type="text" class="form-control" data-ng-model="$ctrl.nuevoAutor.muerte">
+                </div>
+            </div>
+			<span>
+				<button class="btn btn-success" type="button" style="margin:3px;" data-ng-click="$ctrl.guardar()" data-ng-disabled="formulario.$invalid">Guardar</button>
+			    <a href="#!/autores" class="btn btn-warning" type="button" data-ng-click="$ctrl.nuevoAutor=null">Volver</a>
+			</span>
+        </form>
+    </div>
+</div>

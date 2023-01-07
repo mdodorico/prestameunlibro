@@ -1,0 +1,68 @@
+<div class="text-center">
+    <div>
+        <img data-ng-src="{{ $ctrl.miPerfil.url_foto || 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png' }}" height="210">
+    </div>
+    <div class="row">
+        <div class="col-md-12 mb-4 py-2">
+            <h4 style="color:White">{{ $ctrl.miPerfil.alias }}</h4>
+		    <h6 style="color:White">{{ $ctrl.miPerfil.email }}</h6>
+			<h6 style="color:White">{{ $ctrl.miPerfil.localidad.localidad }}</h6>
+        </div>
+    </div>
+	<div class="py-5 text-center">
+	    <button type="button" class="btn btn-primary" style="margin:3px;" data-ng-click="$ctrl.editarPerfil(); $ctrl.nuevosMensajes=null; $ctrl.misEditables=null" data-ng-disabled="$ctrl.usuarioEditado!=null">Editar perfil</button>
+	    <button type="button" class="btn btn-primary" style="margin:3px;" data-ng-click="$ctrl.mostrarMensajes(); $ctrl.usuarioEditado=null; $ctrl.misEditables=null">Mensajes</button>
+		<button type="button" class="btn btn-primary" style="margin:3px;"data-ng-click="$ctrl.mostrarLibros(); $ctrl.usuarioEditado=null; $ctrl.nuevosMensajes=null">Mis libros</button>
+		<button type="button" class="btn btn-danger" style="margin:3px;"data-ng-click="$ctrl.eliminarPerfil()">Borrar perfil</button>
+		<a href="#!/libros" class="btn btn-warning" type="button" style="margin:3px;">Volver</a>
+    </div>
+	<div class="box box-warning table-responsive no-padding" data-ng-if="$ctrl.nuevosMensajes">
+	    <table class="table table-bordered table-hover table-striped table table-dark" style="color:White">
+            <thead>
+                <tr>
+                    <th>Remitente</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="m in $ctrl.nuevosMensajes">
+				    <td>
+						<span class="label label-primary dst">{{ m.remitente }}</span>
+					</td>
+					<td class="text-left">
+					    {{ m.mensaje }}
+				    </td>
+					<td>
+						<button type="button" class="btn btn-sm btn-danger" data-ng-click="$ctrl.eliminarMensaje(m.id)">Borrar</button>
+					</td>
+                </tr>
+            </tbody>
+        </table>
+		<button class="btn btn-warning" type="button" data-ng-click="$ctrl.nuevosMensajes=null">Volver</button>
+	</div>
+	<div class="row" data-ng-if="$ctrl.misEditables">
+	    <div class="col-lg-3 col-md-4 mb-4" data-ng-repeat="l in $ctrl.misEditables | orderBy:'titulo'">
+		    <div class="card h-100" >
+			   <img class="card-img-top product-pic" data-ng-src="{{ l.tapa || 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg' }}" data-ng-title="{{ l.titulo }}">
+			    <div class="card-body">
+				    <h4 class="card-title product">{{l.titulo}}</h4>
+				    <p class="card-text">
+				        <h6>Autor/es:<h6 data-ng-repeat="autor in l.autor">{{ autor }}</h6></h6>
+				        <h6>Idioma: {{l.idioma}}</h6>
+				        <h6>Ciudad: {{l.ciudad}}</h6>
+				        <h6>Año: {{l.anio}}</h6>
+						<h6>Género/s:<h6 data-ng-repeat="genero in l.genero">{{ genero }}</h6></h6>
+				    </p>
+				    <p class="card-text">{{l.sinopsis}}</p>
+			    </div>
+			    <div class="card-footer">
+				    <button type="button" class="btn btn-sm btn-info" data-ng-click="$ctrl.editarLibro(l.id)">Editar</button>
+				    <button type="button" class="btn btn-sm btn-danger" data-ng-click="$ctrl.eliminarLibro(l.id)">Borrar</button>
+			    </div>
+		    </div>
+		</div>
+	</div>
+	  <div class="text-center" data-ng-if="$ctrl.misEditables">
+		<button class="btn btn-warning" type="button" data-ng-click="$ctrl.misEditables=null">Volver</button>
+	  </div>
+</div>

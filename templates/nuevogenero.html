@@ -1,0 +1,20 @@
+<div class="row" style="color:White">
+    <div class="col-md-12">
+    <h4 class="mb-3">Agregar nuevo género</h4>
+        <form class="needs-validation" novalidate name="formulario">
+            <div class="row">
+			    <div class="col-md-6 mb-3">
+                    <label for="nombre">Nombre</label>
+					<input type="text" class="form-control" data-ng-class="{'is-invalid': formulario.nombre.$invalid && formulario.nombre.$dirty}" id="nombre" name="nombre" required data-ng-model="$ctrl.nuevoGenero.genero">
+                        <div class="invalid-feedback">
+                            Debe ingresar un nombre para el género
+                        </div>
+                </div>
+            </div>
+			<span>
+			    <button class="btn btn-success" type="button" style="margin:3px;" data-ng-click="$ctrl.guardar()" data-ng-disabled="formulario.$invalid">Guardar</button>
+			    <a href="#!/generos" class="btn btn-warning" type="button" data-ng-click="$ctrl.nuevoGenero=null">Volver</a>
+			</span>
+        </form>
+    </div>
+</div>

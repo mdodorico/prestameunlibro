@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12" style="color:White">
+        <h4 class="mb-3">Crear usuario nuevo</h4>
+        <form class="needs-validation" novalidate name="formulario">
+            <div class="row">
+			    <div class="col-md-6 mb-3">
+                    <label for="alias">Alias</label>
+					<input type="text" class="form-control" data-ng-class="{'is-invalid': formulario.alias.$invalid && formulario.alias.$dirty }" id="alias" name="alias" data-ng-model="$ctrl.nuevoUsuario.alias" required>
+                        <div class="invalid-feedback">
+                            Debe ingresar un alias
+                        </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="email">Email</label>
+					<input type="email" class="form-control" data-ng-class="{'is-invalid': formulario.email.$invalid && formulario.email.$dirty }" id="email" name="email" data-ng-model="$ctrl.nuevoUsuario.email" required>
+                        <div class="invalid-feedback">
+                            Debe ingresar un email
+                        </div>
+                </div>
+			    <div class="col-md-6 mb-3">
+                    <label for="clave">Clave</label>
+                    <input type="password" class="form-control" data-ng-class="{'is-invalid': formulario.clave.$invalid && formulario.clave.$dirty }" id="clave" name="clave" data-ng-model="$ctrl.nuevoUsuario.clave" required>
+                        <div class="invalid-feedback">
+                            Debe ingresar un clave
+                        </div>
+			    </div>
+				<div class="col-md-6 mb-3">
+                    <label for="localidad">Localidad</label>
+                    <select class="form-control" data-ng-class="{'is-invalid': formulario.localidad.$invalid && formulario.localidad.$dirty }" name="localidad" id="localidad"required data-ng-model="$ctrl.nuevoUsuario.localidad" data-ng-options="l.id as l.localidad for l in $ctrl.localidades | orderBy:'localidad'"></select>
+                        <div class="invalid-feedback">
+                            Debe seleccionar una localidad
+                        </div>
+			    </div>
+				<div class="col-md-6 mb-3">
+				<label for="url_foto">Imagen</label>
+				    <div class="input-group">
+						<span class="input-group-addon">
+						<img data-ng-src="{{ 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png' }}" height="50"></span>
+						<input type="text" class="form-control" placeholder="URL de la foto" data-ng-model="$ctrl.nuevoUsuario.url_foto">
+					</div>
+				</div>
+            </div>
+			<div class="py-3">
+			    <button class="btn btn-success" type="button" style="margin:3px;" data-ng-click="$ctrl.guardar()" data-ng-disabled="formulario.$invalid">Guardar</button>
+                <button class="btn btn-secondary" type="button" style="margin:3px;" data-ng-click="$ctrl.nuevoUsuario=null">Descartar</button>
+			    <a href="#!/login" class="btn btn-warning" type="button" style="margin:3px;">Volver</a>
+			</div>
+        </form>
+    </div>
+</div>

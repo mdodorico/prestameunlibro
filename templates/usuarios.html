@@ -1,0 +1,24 @@
+<div>
+   <div class="row">
+        <div class="col-md-12 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span style="color:White">Usuarios</span>
+            <span class="badge badge-pill badge-primary">{{ $ctrl.usuarios.length }}</span>
+        </h4>
+		<table class="table table-bordered table-hover table-striped table-sm table table-dark" style="color:White">
+            <tbody>
+                <tr height="10px" data-ng-repeat="u in $ctrl.usuarios | orderBy:'alias'">
+					<td>
+					    <span class="label label-primary dst">{{ u.alias }}</span>
+					</td>
+					<td class="col-md-2 text-center">
+						<button type="button" class="btn btn-sm btn-info" data-ng-click="$ctrl.mostrar(u.id)">Ver perfil</button>
+					</td>
+                </tr>
+            </tbody>
+        </table>
+		<a href="#!/libros" class="btn btn-warning" type="button">Volver</a>
+        </div>
+    </div>
+</div>
+
